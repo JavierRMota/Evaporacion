@@ -5,450 +5,487 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.mota.evaporacion.MainActivity">
-<ScrollView
-    android:layout_width="0dp"
-    android:layout_height="0dp"
-    tools:layout_editor_absoluteY="8dp"
-    tools:layout_editor_absoluteX="8dp">
-    <LinearLayout
+
+    <android.support.constraint.Guideline
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/guideline"
+        app:layout_constraintGuide_begin="20dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="8dp"
-        android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="8dp">
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="20dp" />
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1.02"
-            android:text="Bienvenido al calculador de Evaporación."
-            android:textSize="18sp" />
+    <ScrollView
+        android:layout_width="344dp"
+        android:layout_height="551dp"
+        tools:layout_editor_absoluteY="8dp"
+        tools:layout_editor_absoluteX="8dp">
+
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="1"
-            tools:layout_editor_absoluteX="8dp"
-            tools:layout_editor_absoluteY="8dp">
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:orientation="vertical"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:weightSum="1">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:text="Balances para evaporadores batch."
+                android:textSize="18sp" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1.02"
-                android:orientation="vertical"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
                 android:weightSum="1"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="8dp">
 
-                <EditText
-                    android:id="@+id/pEVAET"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_weight="1.02"
-                    android:ems="10"
-                    android:hint="P Evaporador (mmHg)"
-                    android:inputType="numberDecimal"
-                    android:textSize="14sp"
-                    app:layout_constraintHorizontal_bias="0.107"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/pEVAET" />
-
-                <EditText
-                    android:id="@+id/presionVServ"
-                    android:layout_width="160dp"
-                    android:layout_height="44dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginStart="8dp"
-                    android:ems="10"
-                    android:hint="P Vapor (mmHg)"
-                    android:inputType="numberDecimal"
-                    android:singleLine="false"
-                    android:textSize="14sp"
-                    app:layout_constraintHorizontal_bias="0.107"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/aPEEditText" />
-
-                <EditText
-                    android:id="@+id/presionAtmos"
-                    android:layout_width="160dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginStart="8dp"
-                    android:ems="10"
-                    android:hint="P Atmosférica mmHg)"
-                    android:inputType="numberDecimal"
-                    android:textSize="14sp"
-                    app:layout_constraintHorizontal_bias="0.107"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/presionVServ" />
-
-                <EditText
-                    android:id="@+id/tempAlEditText"
-                    android:layout_width="160dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_weight="1.02"
-                    android:ems="10"
-                    android:hint="T Alimentación (Cº)"
-                    android:inputType="numberDecimal"
-                    android:textSize="14sp"
-                    app:layout_constraintHorizontal_bias="0.107"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tempAlEditText" />
-
-                <EditText
-                    android:id="@+id/alEditText"
-                    android:layout_width="160dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginStart="8dp"
-                    android:ems="10"
-                    android:hint="Alimentación (Kg/t)"
-                    android:inputType="numberDecimal"
-                    android:textSize="14sp"
-                    app:layout_constraintHorizontal_bias="0.107"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/brixFinEditText" />
-
-                <EditText
-                    android:id="@+id/calEspAlEditText"
-                    android:layout_width="160dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_weight="1.02"
-                    android:ems="10"
-                    android:hint="CP (KJ/Kg K)"
-                    android:inputType="numberDecimal"
-                    android:textSize="14sp"
-                    app:layout_constraintHorizontal_bias="0.107"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/pEVAET" />
-
-                <EditText
-                    android:id="@+id/brixInEditText"
-                    android:layout_width="160dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginStart="8dp"
-                    android:ems="10"
-                    android:hint="C Inicial (Brix)"
-                    android:inputType="numberDecimal"
-                    android:textSize="14sp"
-                    app:layout_constraintHorizontal_bias="0.107"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/calEspAlEditText" />
-
-                <EditText
-                    android:id="@+id/brixFinEditText"
-                    android:layout_width="160dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginStart="8dp"
-                    android:ems="10"
-                    android:hint="C Final (Brix)"
-                    android:inputType="numberDecimal"
-                    android:textSize="14sp"
-                    app:layout_constraintHorizontal_bias="0.107"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/brixInEditText" />
-
                 <LinearLayout
                     android:layout_width="160dp"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:weightSum="1"
+                    tools:layout_editor_absoluteX="8dp"
+                    tools:layout_editor_absoluteY="8dp">
 
-                    <CheckBox
-                        android:id="@+id/apeCheckBox"
-                        android:layout_width="60dp"
+                    <EditText
+                        android:id="@+id/pEVAET"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="8dp"
                         android:layout_marginLeft="8dp"
                         android:layout_marginRight="8dp"
                         android:layout_marginStart="8dp"
-                        android:layout_weight="1"
-                        android:onClick="abilitarAPE"
-                        android:text="APE"
-                        app:layout_constraintHorizontal_bias="0.709"
+                        android:layout_weight="1.02"
+                        android:ems="10"
+                        android:hint="P VacÌo (mmHg)"
+                        android:inputType="numberDecimal"
+                        android:textSize="14sp"
+                        app:layout_constraintHorizontal_bias="0.107"
                         app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toLeftOf="@+id/aPEEditText"
-                        app:layout_constraintTop_toBottomOf="@+id/alEditText" />
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/pEVAET" />
 
                     <EditText
-                        android:id="@+id/aPEEditText"
-                        android:layout_width="80dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:id="@+id/presionVServ"
+                        android:layout_width="160dp"
+                        android:layout_height="44dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginStart="8dp"
                         android:ems="10"
-                        android:hint="APE"
+                        android:hint="P Vapor (mmHg)"
                         android:inputType="numberDecimal"
-                        android:visibility="invisible" />
+                        android:singleLine="false"
+                        android:textSize="14sp"
+                        app:layout_constraintHorizontal_bias="0.107"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/aPEEditText" />
+
+                    <EditText
+                        android:id="@+id/presionAtmos"
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginStart="8dp"
+                        android:ems="10"
+                        android:hint="P AtmosfÈrica (mmHg)"
+                        android:inputType="numberDecimal"
+                        android:textSize="14sp"
+                        app:layout_constraintHorizontal_bias="0.107"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/presionVServ" />
+
+                    <EditText
+                        android:id="@+id/tempAlEditText"
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1.02"
+                        android:ems="10"
+                        android:hint="T AlimentaciÛn (C∫)"
+                        android:inputType="numberDecimal"
+                        android:textSize="14sp"
+                        app:layout_constraintHorizontal_bias="0.107"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tempAlEditText" />
+
+                    <EditText
+                        android:id="@+id/alEditText"
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginStart="8dp"
+                        android:ems="10"
+                        android:hint="AlimentaciÛn (kg)"
+                        android:inputType="numberDecimal"
+                        android:textSize="14sp"
+                        app:layout_constraintHorizontal_bias="0.107"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/brixFinEditText" />
+
+                    <EditText
+                        android:id="@+id/calEspAlEditText"
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1.02"
+                        android:ems="10"
+                        android:hint="Cpi (kJ/kg∞C)"
+                        android:inputType="numberDecimal"
+                        android:textSize="14sp"
+                        app:layout_constraintHorizontal_bias="0.107"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/pEVAET" />
+
+                    <EditText
+                        android:id="@+id/calEspConEditText"
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1.02"
+                        android:ems="10"
+                        android:hint="Cpf (kJ/kg∞C)"
+                        android:inputType="numberDecimal"
+                        android:textSize="14sp"
+                        app:layout_constraintHorizontal_bias="0.107"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/calEspAlEditText" />
+
+                    <EditText
+                        android:id="@+id/brixInEditText"
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginStart="8dp"
+                        android:ems="10"
+                        android:hint="C Inicial (∞Brix)"
+                        android:inputType="numberDecimal"
+                        android:textSize="14sp"
+                        app:layout_constraintHorizontal_bias="0.107"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/calEspConEditText" />
+
+                    <EditText
+                        android:id="@+id/brixFinEditText"
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginStart="8dp"
+                        android:ems="10"
+                        android:hint="C Final (∞Brix)"
+                        android:inputType="numberDecimal"
+                        android:textSize="14sp"
+                        app:layout_constraintHorizontal_bias="0.107"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/brixInEditText" />
+
+                    <LinearLayout
+                        android:layout_width="160dp"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <CheckBox
+                            android:id="@+id/apeCheckBox"
+                            android:layout_width="60dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_marginStart="8dp"
+                            android:layout_weight="1"
+                            android:onClick="abilitarAPE"
+                            android:text="APE"
+                            app:layout_constraintHorizontal_bias="0.709"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toLeftOf="@+id/aPEEditText"
+                            app:layout_constraintTop_toBottomOf="@+id/alEditText" />
+
+                        <EditText
+                            android:id="@+id/aPEEditText"
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:ems="10"
+                            android:hint="APE"
+                            android:inputType="numberDecimal"
+                            android:visibility="invisible" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+
+                    android:id="@+id/results"
+                    android:layout_width="152dp"
+                    android:layout_height="664dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginStart="12dp"
+                    android:orientation="vertical"
+                    app:layout_constraintHorizontal_bias="0.25"
+                    app:layout_constraintLeft_toRightOf="@+id/tempAlEditText"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_weight="0.80">
+
+                    <TextView
+                        android:id="@+id/textView4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginTop="16dp"
+                        android:text="Concentrado (kg)"
+                        android:textSize="12sp"
+                        app:layout_constraintHorizontal_bias="0.504"
+                        app:layout_constraintLeft_toRightOf="@+id/tempAlEditText"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <EditText
+                        android:id="@+id/concentradoEditText"
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:hint="Concentrado"
+                        android:inputType="numberDecimal"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/textView5"
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginTop="16dp"
+                        android:text="Vapor Alimento (kg)"
+                        android:textSize="12sp"
+                        app:layout_constraintHorizontal_bias="0.504"
+                        app:layout_constraintLeft_toRightOf="@+id/tempAlEditText"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <EditText
+                        android:id="@+id/vaporAlEditText"
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:hint="Vapor Alimento"
+                        android:inputType="numberDecimal"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/textView8"
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginTop="16dp"
+                        android:text="Vapor de Servicio (kg)"
+                        android:textSize="12sp"
+                        app:layout_constraintHorizontal_bias="0.504"
+                        app:layout_constraintLeft_toRightOf="@+id/tempAlEditText"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <EditText
+                        android:id="@+id/vaporServEditText"
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:hint="Vapor de Servicio"
+                        android:inputType="numberDecimal"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/textView6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginTop="16dp"
+                        android:text="EntalpÌa AlimentaciÛn (kJ*kg)"
+                        android:textSize="12sp"
+                        app:layout_constraintHorizontal_bias="0.504"
+                        app:layout_constraintLeft_toRightOf="@+id/tempAlEditText"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <EditText
+                        android:id="@+id/entalpiaAlEditText"
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:hint="EntalpÌa AlimentaciÛn"
+                        android:inputType="numberDecimal"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/textView7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginTop="16dp"
+                        android:text="EntalpÌa Concentrado (kJ*kg)"
+                        android:textSize="12sp"
+                        app:layout_constraintHorizontal_bias="0.504"
+                        app:layout_constraintLeft_toRightOf="@+id/tempAlEditText"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <EditText
+                        android:id="@+id/entalpiaConEditText"
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:hint="EntalpÌa Concentrado"
+                        android:inputType="numberDecimal"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginTop="16dp"
+                        android:text="EntalpÌa Vapor Servicio (kJ*kg)"
+                        android:textSize="12sp"
+                        app:layout_constraintHorizontal_bias="0.504"
+                        app:layout_constraintLeft_toRightOf="@+id/tempAlEditText"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <EditText
+                        android:id="@+id/eVSeditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:hint="EntalpÌa Vapor Servicio"
+                        android:inputType="numberDecimal"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/textView3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginTop="16dp"
+                        android:text="EntalpÌa Vapor Alimento (kJ*kg)"
+                        android:textSize="12sp"
+                        app:layout_constraintHorizontal_bias="0.504"
+                        app:layout_constraintLeft_toRightOf="@+id/tempAlEditText"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <EditText
+                        android:id="@+id/eVAeditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:hint="EntalpÌa Vapor Alimento"
+                        android:inputType="numberDecimal"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/textView9"
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginTop="16dp"
+                        android:text="EconomÌa %"
+                        android:textSize="12sp"
+                        app:layout_constraintHorizontal_bias="0.504"
+                        app:layout_constraintLeft_toRightOf="@+id/tempAlEditText"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <EditText
+                        android:id="@+id/economiaEditText"
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:hint="EconomÌa"
+                        android:inputType="numberDecimal"
+                        android:textSize="12sp" />
+
                 </LinearLayout>
 
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/results"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_marginLeft="12dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginStart="12dp"
-                android:orientation="vertical"
-                app:layout_constraintHorizontal_bias="0.25"
-                app:layout_constraintLeft_toRightOf="@+id/tempAlEditText"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                android:orientation="horizontal"
+                android:weightSum="1">
 
-                <TextView
-                    android:id="@+id/textView4"
-                    android:layout_width="match_parent"
+                <Button
+                    android:id="@+id/button"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginTop="16dp"
-                    android:text="Concentrado (Kg/t)"
-                    android:textSize="12sp"
-                    app:layout_constraintHorizontal_bias="0.504"
-                    app:layout_constraintLeft_toRightOf="@+id/tempAlEditText"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:onClick="calcularTodo"
+                    android:text="Calcular" />
 
-                <EditText
-                    android:id="@+id/concentradoEditText"
-                    android:layout_width="160dp"
+                <Button
+                    android:id="@+id/button2"
+                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                    android:layout_width="110dp"
                     android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="Concentrado"
-                    android:inputType="numberDecimal"
-                    android:textSize="12sp" />
+                    android:elevation="2dp"
+                    android:onClick="limpiarTodo"
+                    android:text="Limpiar"
+                    android:visibility="invisible" />
 
-                <TextView
-                    android:id="@+id/textView5"
-                    android:layout_width="160dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginTop="16dp"
-                    android:text="Vapor Alimento (Kg/t)"
-                    android:textSize="12sp"
-                    app:layout_constraintHorizontal_bias="0.504"
-                    app:layout_constraintLeft_toRightOf="@+id/tempAlEditText"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
 
-                <EditText
-                    android:id="@+id/vaporAlEditText"
-                    android:layout_width="160dp"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="Vapor Alimento"
-                    android:inputType="numberDecimal"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:id="@+id/textView8"
-                    android:layout_width="160dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginTop="16dp"
-                    android:text="Vapor de Servicio (Kg/t)"
-                    android:textSize="12sp"
-                    app:layout_constraintHorizontal_bias="0.504"
-                    app:layout_constraintLeft_toRightOf="@+id/tempAlEditText"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <EditText
-                    android:id="@+id/vaporServEditText"
-                    android:layout_width="160dp"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="Vapor de Servicio"
-                    android:inputType="numberDecimal"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:id="@+id/textView6"
-                    android:layout_width="160dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginTop="16dp"
-                    android:text="Entialpía Alimentación (KJ*Kg)"
-                    android:textSize="12sp"
-                    app:layout_constraintHorizontal_bias="0.504"
-                    app:layout_constraintLeft_toRightOf="@+id/tempAlEditText"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <EditText
-                    android:id="@+id/entalpiaAlEditText"
-                    android:layout_width="160dp"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="Entalpía Alimentación"
-                    android:inputType="numberDecimal"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:id="@+id/textView7"
-                    android:layout_width="160dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginTop="16dp"
-                    android:text="Entialpía Concentrado (KJ*Kg)"
-                    android:textSize="12sp"
-                    app:layout_constraintHorizontal_bias="0.504"
-                    app:layout_constraintLeft_toRightOf="@+id/tempAlEditText"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <EditText
-                    android:id="@+id/entalpiaConEditText"
-                    android:layout_width="160dp"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="Entalpía Concentrado"
-                    android:inputType="numberDecimal"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:id="@+id/textView2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginTop="16dp"
-                    android:text="Entialpía Vapor Servicio (KJ*Kg)"
-                    android:textSize="12sp"
-                    app:layout_constraintHorizontal_bias="0.504"
-                    app:layout_constraintLeft_toRightOf="@+id/tempAlEditText"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <EditText
-                    android:id="@+id/eVSeditText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="Entalpía Vapor Servicio"
-                    android:inputType="numberDecimal"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:id="@+id/textView3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginTop="16dp"
-                    android:text="Entialpía Vapor Alimento (KJ*Kg)ç"
-                    android:textSize="12sp"
-                    app:layout_constraintHorizontal_bias="0.504"
-                    app:layout_constraintLeft_toRightOf="@+id/tempAlEditText"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <EditText
-                    android:id="@+id/eVAeditText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="Entalpía Vapor Alimento"
-                    android:inputType="numberDecimal"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:id="@+id/textView9"
-                    android:layout_width="160dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginTop="16dp"
-                    android:text="Economía %"
-                    android:textSize="12sp"
-                    app:layout_constraintHorizontal_bias="0.504"
-                    app:layout_constraintLeft_toRightOf="@+id/tempAlEditText"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <EditText
-                    android:id="@+id/economiaEditText"
-                    android:layout_width="160dp"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="Economía"
-                    android:inputType="numberDecimal"
-                    android:textSize="12sp" />
             </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/button"
-                style="@style/Widget.AppCompat.Button.Colored"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:onClick="calcularTodo"
-                android:text="Calcular" />
-
-            <Button
-                android:id="@+id/button2"
-                style="@style/Widget.AppCompat.Button.Borderless.Colored"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:onClick="limpiarTodo"
-                android:text="Limpiar"
-                android:visibility="invisible" />
 
         </LinearLayout>
-
-    </LinearLayout>
-</ScrollView>
+    </ScrollView>
 
 </android.support.constraint.ConstraintLayout>
+

@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
         EditText temperaturaAlimentacionET = (EditText) findViewById(R.id.tempAlEditText);
         EditText pEVAET = (EditText) findViewById(R.id.pEVAET);
         EditText calorEspecificoAlET = (EditText) findViewById(R.id.calEspAlEditText);
+        EditText calorEspecificoCoET = (EditText) findViewById(R.id.calEspConEditText);
         EditText concentracionBrixInET = (EditText) findViewById(R.id.brixInEditText);
         EditText concentracionBrixFinET = (EditText) findViewById(R.id.brixFinEditText);
         EditText alimentacionET = (EditText) findViewById(R.id.alEditText);
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
             double temperaturaAl = Double.parseDouble(temperaturaAlimentacionET.getText().toString());
             double pEva = Double.parseDouble(pEVAET.getText().toString());
             double calorE = Double.parseDouble(calorEspecificoAlET.getText().toString());
+            double calorEc= Double.parseDouble(calorEspecificoCoET.getText().toString());
             double brixIn = Double.parseDouble(concentracionBrixInET.getText().toString());
             double brixFin = Double.parseDouble(concentracionBrixFinET.getText().toString());
             double al = Double.parseDouble(alimentacionET.getText().toString());
@@ -48,8 +50,8 @@ public class MainActivity extends AppCompatActivity {
             double concentrado = (brixIn * al) / brixFin;
             double vaporAl = al - concentrado;
 
-            //Balance de energía
-            //Presión real
+            //Balance de energÌa
+            //PresiÛn real
             double pRE = pATM - pEva;
             double pRVS = pATM + pvSR;
 
@@ -57,13 +59,13 @@ public class MainActivity extends AppCompatActivity {
             double tRE = 1730.630/(8.0713 - Math.log10(pRE)) - 233.426;
             double tRVS = 1730.630/(8.0713 - Math.log10(pRVS)) - 233.426;
 
-            //Entalpía
-            //Alimentación
+            //EntalpÌa
+            //AlimentaciÛn
             double entalpiaAl = calorE * (temperaturaAl-0);
 
 
             //Concentrado
-            double entalpiaCon = calorE * (tRE + ape-0);
+            double entalpiaCon = calorEc * (tRE + ape-0);
 
 
             //Vapor de servicio
@@ -128,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
 
 
             //Otros
-            //Economía
+            //EconomÌa
             double economia = (vaporAl / vapServ) * 100;
 
             EditText con = (EditText) findViewById(R.id.concentradoEditText);
@@ -180,6 +182,7 @@ public class MainActivity extends AppCompatActivity {
         EditText temperaturaAlimentacionET = (EditText) findViewById(R.id.tempAlEditText);
         EditText temperaturaEvaporadorET = (EditText) findViewById(R.id.pEVAET);
         EditText calorEspecificoAlET = (EditText) findViewById(R.id.calEspAlEditText);
+        EditText calorEspecificoCoET = (EditText) findViewById(R.id.calEspConEditText);
         EditText concentracionBrixInET = (EditText) findViewById(R.id.brixInEditText);
         EditText concentracionBrixFinET = (EditText) findViewById(R.id.brixFinEditText);
         EditText alimentacionET = (EditText) findViewById(R.id.alEditText);
@@ -191,6 +194,7 @@ public class MainActivity extends AppCompatActivity {
         temperaturaAlimentacionET.setText("");
         temperaturaEvaporadorET.setText("");
         calorEspecificoAlET.setText("");
+        calorEspecificoCoET.setText("");
         concentracionBrixInET.setText("");
         concentracionBrixFinET.setText("");
         alimentacionET.setText("");
@@ -204,3 +208,4 @@ public class MainActivity extends AppCompatActivity {
 
 
 }
+
